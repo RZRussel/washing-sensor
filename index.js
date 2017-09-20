@@ -23,7 +23,7 @@ app.use('/public', express.static(path.join(__dirname, '/public')));
 
 app.use(function(req, res, next) {  
   req.headers['x-real-ip'] = req.ip;
-  log("Client ip = %s", req.ip);
+  console.log("Client ip = %s", req.ip);
   next();
 });
 
