@@ -7,7 +7,7 @@ Parse.Cloud.define('saveVibration', function(req, res) {
 		return;
 	}
 
-	address = req.headers['x-real-ip'];
+	address = req.ip;
 	console.log("Client ip = %s", address);
 	vibration = req.params["vibration"];
 
