@@ -18,6 +18,11 @@ var api = new ParseServer({
 
 var app = express();
 
+app.use(function(req, res, next) {  
+  req.headers['x-real-ip'] = req.ip;
+  next();
+});
+
 // Serve static assets from the /public folder
 app.use('/public', express.static(path.join(__dirname, '/public')));
 
