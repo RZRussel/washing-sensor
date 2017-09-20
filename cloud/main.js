@@ -7,10 +7,17 @@ Parse.Cloud.define('saveVibration', function(req, res) {
 		return;
 	}
 
+	if (!req.params["ip_address"]){
+		failResponse(res, CODE_MISSING_PARAMETER, "no ip_address value found");
+		return;
+	}
+
 	vibration = req.params["vibration"];
+	ip_address = req.params["ip_address"];
 
 	var measurement = new Parse.Object("Measurement");
 	measurement.set("vibration", vibration);
+	measurement.set("ip_address", ip_address);
 	measurement.save(null, {
 		useMasterKey: true,
 		success: function(object){
