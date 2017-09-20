@@ -12,7 +12,7 @@ Parse.Cloud.define('saveVibration', function(req, res) {
 	vibration = req.params["vibration"];
 
 	var measurement = new Parse.Object("Measurement");
-	measurement.set("address", address);
+	measurement.set("address", "address");
 	measurement.set("vibration", vibration);
 	measurement.save(null, {
 		useMasterKey: true,
